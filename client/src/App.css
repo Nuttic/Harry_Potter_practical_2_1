@@ -1,0 +1,223 @@
+@import url('https://googleapis.com');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Глубокий ночной фон Хогвартса с лёгким золотистым свечением */
+  background: radial-gradient(circle at top center, #1b2234 0%, #0d111a 100%);
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  color: #f4ebd8;
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 693px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 0 80px;
+}
+
+header {
+  margin-bottom: 35px;
+  border-bottom: 1px solid rgba(211, 166, 37, 0.3);
+  padding-bottom: 24px;
+}
+
+header h1 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #eeba30; /* Золото Гриффиндора */
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 10px rgba(238, 186, 48, 0.25);
+}
+
+header > p {
+  font-size: 16px;
+  color: #c8bca6;
+  margin-bottom: 26px;
+  font-style: italic;
+}
+
+.input_label {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+.input_label div {
+  display: flex;
+  flex-direction: column;
+}
+
+.input_label div p {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #d3a625;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 452px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0 14px;
+  border: 1px solid #5c4b32;
+  background-color: #161b26;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 14px;
+  color: #f4ebd8;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input::placeholder {
+  color: #7b7263;
+  font-style: italic;
+}
+
+input:focus {
+  border-color: #eeba30;
+  box-shadow: 0 0 8px rgba(238, 186, 48, 0.25);
+}
+
+select {
+  width: 216px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0 12px;
+  border: 1px solid #5c4b32;
+  background-color: #161b26;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 14px;
+  color: #f4ebd8;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+select:focus {
+  border-color: #eeba30;
+  box-shadow: 0 0 8px rgba(238, 186, 48, 0.25);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 334px 334px;
+  gap: 25px;
+  width: 693px;
+}
+
+.Card {
+  width: 334px;
+  /* Тёплый оттенок старинного пергамента */
+  background: linear-gradient(180deg, #f6eedc 0%, #eae0c8 100%);
+  border: 1px solid #b5945b;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(166, 130, 70, 0.15);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.Card:hover {
+  transform: translateY(-4px);
+  border-color: #eeba30;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6), 0 0 14px rgba(238, 186, 48, 0.3);
+}
+
+.Card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+  background-color: #241f1c;
+  border-bottom: 2px solid #9e7b43;
+}
+
+.Card .card_info {
+  padding: 18px 22px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Card h3 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #5c1916; /* Глубокий бордовый цвет (Гриффиндор / сургуч) */
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(158, 123, 67, 0.3);
+  padding-bottom: 6px;
+}
+
+.Card p {
+  font-size: 13.5px;
+  color: #2b2118; /* Тёмные чернила */
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+
+.not-found {
+  grid-column: 1 / -1;
+  color: #c8bca6;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  padding-top: 24px;
+}
+
+@media (max-width: 720px) {
+  .app-container {
+    padding: 30px 16px 50px;
+  }
+
+  header {
+    margin-bottom: 25px;
+  }
+
+  header h1 {
+    font-size: 30px;
+  }
+
+  header > p {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .input_label {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .input_label div {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .Card {
+    width: 100%;
+  }
+}
